@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Spitsarev Z11_html</title>
+</head>
+
+<body>
+<h1>Temat: Wymień rodzaje selektorów.<br><br>
+    <b>ODPOWIEDZI NA PYTANIA<br><br><br>
+
+Rodzaje selektorów<br><br>
+1)selektor prosty (selektor typu)<br><br></h1>
+
+Rodzaj pierwszy<br>
+Selektory proste nazywany inaczej selektor typu<br><br>
+p<br>
+ {<br>
+color:red;<br>
+ font-size:14pt;<br>
+}<br><br>
+Selektorem prostymjest znaczniki języka XHTML/HTML (np. p, h3, table, img)przypisany<br>
+do elementu, który chcesz w danym momencie formatować.<br>
+Styl zdefiniowany dla przykładowego selektora pbędzie odnosił się wyłącznie do akapitów<br>
+zamkniętych w znacznikach < p > < /p > i nie będzie wpływał na pozostałe elementy strony<br>
+WWW. <br><br>
+
+
+<h1>2)selektor uniwersalny<br><br></h1>
+
+
+
+
+Selektor uniwersalny<br><br>
+Składnia teoretyczna:<br>
+* { cecha: wartość }<br>
+Cecha (ang. property) oraz wartość (ang. value) określają atrybuty elementu.<br>
+Selektor taki pozwala ustalić określone atrybuty dla wszystkich elementów strony, a więc dla<br>
+różnych selektorów typu. Możemy za pomocą tej komendy nadać to samo formatowanie dla<br>
+wszystkich elementów na całej stronie, niezależnie od ich typu (p, h1, li itd.).<br>
+Uwaga1<br>
+Niestety jego działanie nie zawsze jest jednoznaczne, dlatego dużo bezpieczniej jest używać<br>
+selektora typu dla elementu body, chyba że zastosujemy to polecenie w odniesieniu do klasy<br>
+selektorów.<br>
+Uwaga2<br>
+Jeśli selektor uniwersalny chcemy zastosować do selektora innego niż selektor typu (w<br>
+połączeniu z selektorami: atrybutów, specjalnymi, pseudoelementów lub pseudoklas), to<br>
+gwiazdkę można pominąć.<br>
+Przykład<br>
+Zdarza się, że zachodzi potrzeba zdefiniowania jakiegoś typu formatowania w ten sposób, aby<br>
+zadziałał on na cały dokument. Bardzo dobrym przykładem takiej sytuacji może być tło, które<br>
+zazwyczaj powinno być identyczne dla całego dokumentu. Odpowiedni styl może przyjąć<br>
+następującą postać:<br>
+body<br>
+{<br>
+color:red; /* kolor czcionki */<br>
+font-size:14pt; /* wielkość czcionki */<br>
+}<br>
+inny sposób zamiast selektora uniwersalnego stosujemy znak *<br>
+*<br>
+{<br>
+background-color:white; /* kolortła */<br>
+}<br><br>
+
+
+
+
+
+<h1>
+3)selektor potomka<br><br></h1>
+
+
+
+
+
+Selektor potomka<br><br>
+Przy użyciu selektora potomka można formatować elementy, które sa zawarte wewnątrz<br>
+
+innych znaczników, czyli leżą niżej w hierarchii drzewa dokumentu.<br>
+
+Składnia teoretyczna:<br>
+przodek1 przodek2 ... potomek { cecha: wartość }<br>
+gdzie;<br>
+"przodek1, przodek2,..." oraz "potomek" (wielokropek należy pominąć!) są selektorami<br>
+typu, przy czym przodek leży wyżej w hierarchii drzewa dokumentu<br>
+Natomiast wyrazy "cecha" oraz "wartość" określają atrybuty elementu.<br>
+Selektor potomka pozwala nadać atrybuty elementom, które leżą niżej w hierarchii drzewa<br>
+dokumentu (zawierają się w innych zewnętrznych znacznikach). Dzięki temu możemy<br>
+zmienić typ formatowania tylko dla określonych elementów, które są podrzędne w stosunku<br>
+do innych (przodków). Potomek nie musi leżeć bezpośrednio wewnątrz znacznika przodka.<br>
+Może być zawarty jeszcze w innych znacznikach, które z kolei zawierają się w rodzicu. Nie<br>
+jest wtedy konieczne podawanie w deklaracji wszystkich rodziców, a jedynie przodka i<br>
+potomka.<br>
+Selektor taki jest szczególnie przydatny, dla określenia wyglądu odsyłaczy wewnątrz bloku,<br>
+ponieważ jeśli nie określimy dla nich tzw. pseudoklas odsyłaczowych, nie odziedziczą one<br>
+formatowania po przodkach.<br>
+W arkuszu stylów strony została umieszczona następująca reguła:<br>
+p b { color: red } czyli definiowanie potomka.<br><br>
+
+<textarea cols="90" rows="24">
+
+<html>
+<head>
+<title>stylwpisany</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+p b { color: red }
+</style>
+</head>
+<body>
+<p>Dzięki temu, jeśli wewnątrz znacznika p (akapit)<br>
+<b> znajdzie się znacznik b (czyli pogrubienie tekstu), to zostanie on automatycznie </b><br>
+napisany czcionką koloru czerwonego.</p>
+</body>
+</html>
+
+</textarea> <br><br>
+
+Wygląd ekranu:<br>
+Dzięki temu, jeśli wewnątrz znacznika p (akapit)<br>
+<font color="red">znajdzie się znacznik b (czyli pogrubienie tekstu), to zostanie on automatycznie</font><br>
+napisany czcionką koloru czerwonego.<br>
+
+<br><br>
+
+
+
+
+<h1>4)selektor dziecka<br><br></h1>
+
+
+
+
+
+Rodzaj czwarty selektora<br>
+Selektor dziecka<br>
+Selektor dziecka służy do definiowania elementów, które znajdują się o jeden rząd niżej w<br>
+hierarchii drzewa dokumentów.<br>
+rodzic > dziecko {właściwość: wartość}<br>
+gdzie symbol „>” oznacza bezpośredni związek między elementami.<br>
+Przykład opisanego selektora znajduje się poniżej.<br>
+
+
+<textarea cols="30" rows="15">
+
+
+
+p >span
+{
+font-style:italic;
+text-decoration:underline;
+color:green;
+}
+
+
+
+</textarea>
+
+
+
+
+<br><br>
+
+
+Działaniedefinicji stylu opis:<br>
+Dany styl zadziała w przypadku, gdy wewnątrz bloku tekstu zostanie umieszczony znacznik<br>
+< span > < /span >.<br>
+
+<br><br>
+
+
+Realizacja:<br>
+
+
+<p>Dowolny tekst, w którym widać efekt działania <span>selektora dziecka</span>.</p><br>
+<span>Tekst zamknięty wewnątrz znacznika span, który nie jest formatowany za pomocą <br>
+selektora dziecka.</span> <br>
+
+
+Działanieopis tekstu w ramce powyżej:<br>
+<span></ span> jest „dzieckiem”<br>
+< p >< /p > jest „rodzicem”<br>
+pierwsza linia<br>
+formatowaniu zostanie poddany tylko tekst znajdujący się wewnątrz znacznika<br>
+< span >< /span >, który z kolei ograniczony jest przez < p > < /p >,<br>
+druga linia<br>
+natomiast inne elementy, które nie są „dziećmi” < p >< /p >, pomimo że również zamknięte są<br>
+w < span >< /span >, pozostaną bez zmian.<br><br>
+
+
+Efekt działania formatowania:<br>
+
+Dowolny tekst w ktorym widac efekt dzialania <font color="green"> selektora dziecka </font><br><br>
+
+Tekst zamkniety wewnatrz span ktory nie jest formatowany za pomoca selektora dziecka 
+
+<br><br>
+
+<h1>5)selektor braci<br><br></h1>
+
+
+
+Rodzaj piąty selektora<br>
+Selektora "rodzeństwa" (braci)<br>
+brat1 + brat2 {właściwość: wartość}<br>
+Zastosowanie selekora rodzeństwa można przypisać styl elementowi bezpośrednio<br>
+sąsiadującemu z innymi. By warunek został spełniony, oba selektory muszą mieć wspólnego<br>
+„rodzica”. <br>
+
+Przykładem takiego selektora jest poniższy listing.<br>
+definicja:<br>
+
+<textarea cols="40" rows="10">
+
+p + span
+ {
+font-style:italic;
+text-decoration:underline;
+color:green;
+}
+
+</textarea><br><br>
+
+
+
+znaczniki < p > oraz <span>podczas realizacji muszą ze sobą sąsiadować.<br>
+realizacja:<br>
+
+< p >To jest tekst akapitu.</p><span>A tutaj działa selektor rodzeństwa.</span><br>
+< span >Natomiast ten tekst, pomimo że jest zamknięty w span, już nie jest formatowany, bo<br>
+nie sąsiaduje bezpośrednio z akapitem.</span><br>
+
+
+
+W powyższego kodu wynika, iż są dwa bloki < span > :<br>
+pierwszy blok span blok tekstu ujęty w < p >sąsiaduje ze znacznikiem < span >,< span ><br>
+przejmuje formatowanie od < p >,<br>
+drugi znacznik <span> bezpośrednio nie sąsiaduje z < p > i < span > nie przejmuje<br>
+formatowanie od < p >.<br>
+
+
+
+działanie:<br>
+To jest tekst akapitu.<font color="green">A tutaj działa selektor rodzeństwa</font>.Natomiast ten tekst, pomimo że jest<br>
+zamknięty w span, już nie jest formatowany, bo nie sąsiaduje bezpośrednio z akapitem.<br>
+
+<br><br>
+<h1>6)selektor atrybutu<br><br></h1>
+
+a)prosty selektor atrybutu<br>
+b)selektor atrybutu o określonej wartości<br>
+c)selektor atrybutu zawierający określony wyraz<br><br>
+
+
+
+
+
+
+
+
+Rodzaj szósty selektora<br>
+Prosty selektor atrybutu<br>
+Składnia teoretyczna:<br>
+selektor[atrybut] { cecha: wartość }<br>
+Selektorem może być dowolny znacznik, np. ( p – akapit ), ( h1 – nagłówek ),(td - komórka<br>
+tabeli).<br>
+Atrybut oznacza konkretny parametr nadany znacznikowi z poziomu języka (X)HTML.<br>
+Natomiast "cecha" oraz "wartość" określają atrybuty elementu nadane poprzez style i<br>
+zostaną opisane w dalszych rozdziałach.<br>
+Polecenie to może zostać wykorzystane dla elementów, którym z poziomu (X)HTML został<br>
+nadany określony atrybut (przy czym jego wartość nie ma znaczenia).<br>
+uwaga<br>
+W języku XHTML wszystkie atrybuty w selektorach muszą być pisane małymi literami.<br>
+Przykład1 - krótki:<br>
+p[title] { color: red }<br>
+to każdy akapit, któremu został nadany atrybut title="...", powinien mieć kolor czerwony:<br>
+Przykład2 - krótki:<br>
+p[title][lang] { color: red }<br>
+Dozwolone jest podanie kilku atrybutów. Wtedy element musi posiadać wszystkie z nich, aby<br>
+otrzymał formatowanie:<br>
+Przykład - całościowy:<br>
+<textarea cols=80" rows="20">
+
+<html>
+<head>
+<title>prosty selektor atrybutu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+ p[align]{ font-size: 20pt; color: green; }
+</style>
+</head>
+<body>
+<p align="center">wyśrodkowanie 20pt i kolor zielony</p><br>
+<p align="right">do prawej 20pt i kolor zielony </p><br>
+<p>Nie ma formatowania bo nie ma atrybutu align</p><br>
+</body>
+</html>
+
+
+
+</textarea>
+
+
+
+<br><br>
+
+
+<h1>7)selektory specjalne<br></h1>
+a)selektor klasy<br>
+b)pseudoklasyk<br>
+c)selektory pseudoelementów<br><br>
+
+           -pierwsza linia<br>
+           -pierwsza litera<br><br>
+
+<!-- Spitsarev Z11_html -->
+</body>
